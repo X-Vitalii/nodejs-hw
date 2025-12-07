@@ -1,6 +1,10 @@
 import { Note } from '../models/note.js';
 import createHttpError from 'http-errors';
 
+export const homePage = (req, res) => {
+  res.status(200).json('You are at NoteHub home page!');
+};
+
 export const getAllNotes = async (req, res) => {
   console.log('here');
   const { page = 1, perPage = 10, tag, search } = req.query;

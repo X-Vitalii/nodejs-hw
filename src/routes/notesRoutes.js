@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { celebrate } from 'celebrate';
 import {
+  homePage,
   getAllNotes,
   getNoteById,
   createNote,
@@ -15,6 +16,8 @@ import {
 } from '../validations/notesValidation.js';
 
 const notesRoutes = Router();
+
+notesRoutes.get('/', homePage);
 
 notesRoutes.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
 
