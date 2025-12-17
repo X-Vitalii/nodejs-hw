@@ -22,6 +22,7 @@ export const setSessionCookies = (res, session) => {
     sameSite: 'none',
     maxAge: FIFTEEN_MINUTES,
   });
+
   res.cookie('refreshToken', session.refreshToken, {
     httpOnly: true,
     secure: true,
