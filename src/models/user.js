@@ -22,6 +22,12 @@ const userSchema = new Schema(
   { timestamps: true, versionKey: false },
 );
 
+userSchema.pre('save', function () {
+  if (!this.username) {
+    this.username = this.email;
+  }
+});
+
 userSchema.methods.toJSON = function () {
   const obj = this.toObject();
   delete obj.password;
